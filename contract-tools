@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DOCKER_IMAGE=docker-repo.devops.projectronin.io/ronin-contract-rest-tooling:v1
+
+docker run --rm -it -v "$PWD:/app" -v "$HOME/.m2/repository:/home/ronin/host-repository" "${DOCKER_IMAGE}" gradle "$@"
