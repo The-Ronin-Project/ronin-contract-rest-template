@@ -1,18 +1,20 @@
-name: Rest Contract CI/CD
+name: Contract CI/CD
 
 on:
   push:
     branches:
       - main
+      - version/v*
+    tags:
+      - 'v*.*.*'
   pull_request:
-  workflow_dispatch:
 
 jobs:
   build_and_test:
-    name: build_and_test
-    uses: projectronin/github/.github/workflows/rest_contract_cicd.yaml@master
-    with:
-      publish: ${{ github.ref == 'refs/heads/main' }}
-    secrets:
-      nexus_user:      ${{ secrets.NEXUS_MAVEN_USER }}
-      nexus_token:     ${{ secrets.NEXUS_MAVEN_TOKEN }}
+    runs-on: self-hosted
+    steps:
+      - name: test and build
+        uses: projectronin/github/.github/actions/json-contract-cicd-gradle@json_contract_cicd_gradle/v1
+        with:
+          nexus_user: ${{ secrets.NEXUS_MAVEN_USER }}
+          nexus_token: ${{ secrets.NEXUS_MAVEN_TOKEN }}

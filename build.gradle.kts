@@ -4,5 +4,5 @@ node {
 }
 
 plugins {
-    id("com.projectronin.rest.contract.support") version "1.2.1"
+    alias(roningradle.plugins.ronin.openapi.contract)
 }
