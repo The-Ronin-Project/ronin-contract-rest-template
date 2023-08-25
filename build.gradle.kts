@@ -1,8 +1,5 @@
-node {
-    download.set(true)
-    version.set("18.12.1")
-}
+group = "com.projectronin.rest.contract.template"
 
 plugins {
-    alias(roningradle.plugins.ronin.openapi.contract)
+    alias(roningradle.plugins.openapi.contract)
 }
