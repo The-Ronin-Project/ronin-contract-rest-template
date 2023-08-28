@@ -20,7 +20,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("roningradle") {
-            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.1.3-DASH5739-SNAPSHOT")
+            from("com.projectronin.services.gradle:ronin-gradle-catalog:2.2.0")
         }
     }
 }
